@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,14 +34,29 @@ public class GetmethodQuiz08 extends HttpServlet{
 		        "자축 저 오늘 생일 이에요."));
 
 		out.print("<html><head></head><body>");
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).contains(search)) {
-			String[] array = list.get(i).split(" ");
-				for (int j = 0; j < array.length; j++) {
-					if (array[j].equals(search)) {
-						System.out.print(array[j]);
-					}
-				}
+		Iterator<String> iter = list.iterator();
+		while (iter.hasNext()) {
+			String line = iter.next();
+			int index = line.indexOf(search);
+//			풀이 1
+//			if (index > -1) {
+////					
+//				StringBuffer sb = new StringBuffer();
+//				sb.append(line);
+//				sb.insert(index, "<b>"); // |맛집 <b> 태그, 추가 => <b>맛집|
+//				sb.insert(index + search.length() + 3, "</b>"); // <b>맛집|</b>
+//				
+//				out.print(sb + "<br>");
+//			}
+//			풀이 2
+//			if (line.contains(search)) {
+//				String [] words = line.split(search); // apple:orange
+//				out.print(words[0] + "<b>" + search + "</b>" + words[1] + "<br>");
+//			}
+//			풀이 3
+			if (line.contains(search)) {
+				line = line.replace(search, "<b>" + search + "</b>");
+				out.print(line + "<br>");
 			}
 		}
 		out.print("</body></html>");
