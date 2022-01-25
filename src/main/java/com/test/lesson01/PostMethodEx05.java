@@ -23,13 +23,15 @@ public class PostMethodEx05 extends HttpServlet{
 		
 		PrintWriter out = response.getWriter();
 		
-		out.print("<html><head><title>회원정보</title></head><body>");
+		out.print("<html><head><title>íìì ë³´</title></head><body>");
 		out.print("<table border=1>");
-		out.print("<tr><th>아이디</th><td>" + userId + "</td></tr>");
-		out.print("<tr><th>이름</th><td>" + name + "</td></tr>");
-		out.print("<tr><th>생일</th><td>" + birth + "</td></tr>");
-		out.print("<tr><th>이메일</th><td>" + email + "</td></tr>");
+		out.print("<tr><th>ìì´ë</th><td>" + userId + "</td></tr>");
+		out.print("<tr><th>ì´ë¦</th><td>" + name + "</td></tr>");
+		out.print("<tr><th>ìì¼</th><td>" + birth + "</td></tr>");
+		out.print("<tr><th>ì´ë©ì¼</th><td>" + email + "</td></tr>");
 		out.print("</table></body></html>");
+		
+//		주석 테스트
 		
 	}
 }
