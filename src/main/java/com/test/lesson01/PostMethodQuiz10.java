@@ -40,6 +40,7 @@ public class PostMethodQuiz10 extends HttpServlet {
 		}
 		out.print("</body></html>");
 	}
+//	수정
 	
 
 }
