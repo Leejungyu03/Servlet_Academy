@@ -4,13 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<<<<<<< HEAD
-<title>Insert title here</title>
-</head>
-<body>
-
-=======
-<title>계산기</title>
+<title>길이변화</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -18,22 +12,20 @@
 </head>
 <body>
 	<div class="container">
-		<h1>사칙 연산 계산기</h1>
-		<form method="POST" action="/lesson02/quiz04_1.jsp">
-			<div class="d-flex">
-				<input type="text" class="form-control col-2" name="number1">
-				<select name="operator" class="form-control col-2">
-					<option value="plus">+</option>	
-					<option value="minus">-</option>
-					<option value="multiple">*</option>	
-					<option value="divide">/</option>
-					<input type="text" class="form-control col-2" name="number2">
-					
-					<input type="submit" class="btn btn-success col-1" value="계산하기">
-				</select>
+		<h1>길이 변환</h1>
+		<form method="POST" action="/lesson02/quiz05_1.jsp">
+			<div>
+				<input type="text" class="form-control col-3" name="length">
+				<span>cm</span>
 			</div>
+			<label>인치<input type="checkbox" name="unit" value="inch"></label>
+			<label>야드<input type="checkbox" name="unit" value="yard"></label>
+			<label>피트<input type="checkbox" name="unit" value="feet"></label>
+			<label>미터<input type="checkbox" name="unit" value="meter"></label>
+			
+			<input type="submit" class="btn btn-success text-white">
+			
 		</form>
 	</div>
->>>>>>> 3d8f3e11870158c8395c4ae10812a5de8e32566a
 </body>
 </html>
