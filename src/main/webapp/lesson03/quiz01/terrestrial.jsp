@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sk Boradband IPTV</title>
+<title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -66,7 +66,7 @@
     map = new HashMap<String, String>() {{ put("ch", "121"); put("name", "KBSN 스포츠"); put("category", "스포츠"); } };
     list.add(map);
 %>
-	<div id="wrap" class="container text-center">
+<div id="wrap" class="container text-center">
 		<h1 class="text-danger">Sk Boradband IPTV</h1>
 		<nav class="menu bg-danger">
 			<ul class="nav nav-fill w-100">
@@ -89,15 +89,18 @@
 				</thead>
 				<tbody>
 				<%
-					for (Map<String, String> item : list) {
+					for (int i = 0; i <= list.size(); i++) {
+						if (list.get(i).get("category").equals("지상파")) {
 				%>
 					<tr>
-						<td><%= item.get("ch") %></td>
-						<td><%= item.get("name")%></td>
-						<td><%= item.get("category")%></td>
+						<td><%= list.get(i).get("ch") %></td>
+						<td><%= list.get(i).get("name")%></td>
+						<td><%= list.get(i).get("category")%></td>
 					</tr>
 				<%
+						}
 					}
+					out.print("아아");
 				%>
 				</tbody>
 			</table>
