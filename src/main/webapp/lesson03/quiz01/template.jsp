@@ -1,46 +1,37 @@
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Sk Boradband IPTV</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<style>
-		#wrap {
-			width: 100%;
-			height: 900px;
-		}
-		header {
-			height: 50px;
-		}
-		.content-box {
-			height: 850px; 
-		}
-		section {
-			height: 90%;
-		}
-		footer {
-			height: 10%;
-		}
-	</style>
+<style type="text/css">
+	#wrap {
+		width: 100%;
+		height: 100%
+	}
+	nav {
+		height: 50px;
+	}
+	nav ul li {
+		font-size: 18px;
+	}
+	.nav-link {
+		text-decoration: none;
+	}
+</style>
 </head>
 <body>
-	<div id="wrap" class="bg-secondary">
-		<%@ include file="header.jsp" %>
-		<div class="content-box bg-dark d-flex">
-		<%@ include file="menu.jsp" %>
-			<div class="col-9 bg-primary">
-				<%
-					String contentName = "content2.jsp";
-				%>
-				<jsp:include page="<%= contentName %>">
-				<jsp:include page="footer.jsp">
-			</div>
-		</div>
+	<div id="wrap" class="container text-center">
+		<h1 class="text-danger">Sk Boradband IPTV</h1>
+		<jsp:include page="nav.jsp" />
+		<jsp:include page="content.jsp" />
+		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>
