@@ -131,9 +131,6 @@ musicInfo.put("time", 217);
 musicInfo.put("composer", "아이유,이종훈,이채규");
 musicInfo.put("lyricist", "아이유");
 musicList.add(musicInfo);
-
-int id = Integer.parseInt(request.getParameter("id"));
-String search = request.getParameter("search");
 %>
 	<div class="container">
 		<jsp:include page="header.jsp" />
@@ -141,31 +138,49 @@ String search = request.getParameter("search");
 		<section class="musicInfo mt-3">
 			<h4>곡 정보</h4>
 			<div class="musicProfile d-flex">
-			<%
+			<%	
+			int id = Integer.parseInt(request.getParameter("id"));
+			Map<String, Object> target = null;
+			if (request.getParameter("search") == null) {
 				for (Map<String, Object> music : musicList) {
-					if (music.get("id").equals(id) == false) {
-						continue;
+					if ((int)music.get("id") == id) {
+						target = music;
 					}
-					if (music.get("title").equals(search) == false) {
-						continue;
+				}
+			}
+			
+			
+			if (request.getParameter("search") != null) {
+				String search = request.getParameter("search");
+				
+				for (Map<String, Object> music : musicList) {
+					if (search.equals(music.get("title"))) {
+						target = music;
 					}
+				}
+			}
 			%>
 				<div>
-					<img src="<%=music.get("thumbnail")%>" width="200">
+					<img src="<%=target.get("thumbnail")%>" width="200">
 				</div>
 				<div class="text mt-4">
-					<h1><%=music.get("title")%></h1>
-					<div class="text-success font-weight-bold mt-3"><%=music.get("singer")%></div>
-					<div class="musicInfo mt-3">
-						<span>앨범&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=music.get("album")%></span> <br>
-						<span>재생시간&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=music.get("time")%></span> <br>
-						<span>작곡가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=music.get("composer")%></span> <br>
-						<span>작사가&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=music.get("lyricist")%></span>
+					<h1><%=target.get("title")%></h1>
+					<div class="text-success font-weight-bold mt-3"><%=target.get("singer")%></div>
+					<div class="musicInfo mt-3 d-flex">
+						<div class="text-secondary">
+							앨범 <br>
+							재생시간 <br>
+							작곡가 <br>
+							작사가 <br>
+						</div>
+						<div class="text-secondary ml-3">
+							<%=target.get("album")%> <br>
+							<%= (int)target.get("time") / 60%>:<%= (int)target.get("time") % 60%> <br>
+							<%=target.get("composer")%> <br>
+							<%=target.get("lyricist")%>
+						</div>
 					</div>
 				</div>
-			<%
-				}
-			%>
 			</div>
 		</section>
 		<jsp:include page="lyrics.jsp" />
