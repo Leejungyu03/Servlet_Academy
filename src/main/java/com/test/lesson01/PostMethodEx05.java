@@ -23,7 +23,7 @@ public class PostMethodEx05 extends HttpServlet{
 		
 		PrintWriter out = response.getWriter();
 		
-		out.print("<html><head><title>íìì ë³´</title></head><body>");
+		out.print("<html><head><title>íìì ë³´</title></head><body>");
 		out.print("<table border=1>");
 		out.print("<tr><th>ìì´ë</th><td>" + userId + "</td></tr>");
 		out.print("<tr><th>ì´ë¦</th><td>" + name + "</td></tr>");
