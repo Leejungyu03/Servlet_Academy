@@ -22,7 +22,7 @@ public class Lesson04Quiz02_insert extends HttpServlet {
 		MysqlService mysqlServuce = MysqlService.getInstance();
 		mysqlServuce.connection();
 		
-		// insert query 수행
+		// 쿼리 수행
 		String insertQuery = "insert into `favorite` (`name`, `url`)"
 				+ "values('" + name + "', '" + url + "')";
 		
@@ -32,10 +32,10 @@ public class Lesson04Quiz02_insert extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		// DB 연결 해제
+		// DB 해제
 		mysqlServuce.disconnect();
 		
-		// 목록 화면 이동 -> 리다이렉트
+		// 목록 화면 이동
 		response.sendRedirect("/lesson04/quiz02.jsp");
 	}
 }
